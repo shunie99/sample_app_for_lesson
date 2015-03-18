@@ -23,9 +23,7 @@ class User < ActiveRecord::Base
   end
   
   def feed
-    # このコードは準備段階です。
-    # 完全な実装は、次章を参照してください。
-    Micropost.where("user_id = ?", id)
+    Micropost.from_users_followed_by(self)
   end
 
  def following?(other_user)
